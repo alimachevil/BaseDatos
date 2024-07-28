@@ -35,7 +35,7 @@ if ($stmt->execute()) {
     // Registro exitoso, guardar el número de documento en la sesión
     $_SESSION['numero_documento'] = $numero_documento;
     // Redirigir a la pantalla de selección de ruta
-    header("Location: seleccionar_rutaa.php");
+    header("Location: registro_paquete.php");
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }

@@ -44,5 +44,5 @@ $stmt_ruta->close();
 $conn->close();
 
 // Redirigir a la siguiente pantalla o mostrar mensaje de éxito
-header("Location: siguiente_pantalla.php");
+header("Location: registro_paquete.php");
 ?>
