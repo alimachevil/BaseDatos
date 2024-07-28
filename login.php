@@ -1,4 +1,6 @@
 <?php
+session_start(); // Iniciar la sesión
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -21,8 +23,10 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
-    // Usuario encontrado
-    echo "Login exitoso.";
+    // Usuario encontrado, guardar el número de documento en la sesión
+    $_SESSION['numero_documento'] = $numero_documento;
+    // Redirigir a la pantalla de selección de ruta
+    header("Location: seleccionar_rutaa.php");
 } else {
     // Usuario no encontrado
     echo "Número de documento no encontrado.";

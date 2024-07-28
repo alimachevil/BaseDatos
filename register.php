@@ -1,4 +1,6 @@
 <?php
+session_start(); // Iniciar la sesión
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -24,16 +26,21 @@ $provincia = $_POST['provincia'];
 $distrito = $_POST['distrito'];
 $direccion = $_POST['direccion'];
 
-$sql = "INSERT INTO Usuarios (numero_documento, tipo_documento, correo_electronico, nombre, apellido_paterno, apellido_materno, celular, departamento, provincia, distrito, direccion) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+$sql = "INSERT INTO Usuarios (numero_documento, tipo_documento, correo_electronico, nombre, apellido_paterno, apellido_materno, celular, departamento, provincia, distrito, direccion)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("sssssssssss", $numero_documento, $tipo_documento, $correo_electronico, $nombre, $apellido_paterno, $apellido_materno, $celular, $departamento, $provincia, $distrito, $direccion);
 
 if ($stmt->execute()) {
-    echo "Registro exitoso.";
+    // Registro exitoso, guardar el número de documento en la sesión
+    $_SESSION['numero_documento'] = $numero_documento;
+    // Redirigir a la pantalla de selección de ruta
+    header("Location: seleccionar_rutaa.php");
 } else {
-    echo "Error: " . $stmt->error;
+    echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 $stmt->close();
 $conn->close();
 ?>
+
