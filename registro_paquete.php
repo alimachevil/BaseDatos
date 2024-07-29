@@ -166,6 +166,10 @@ $conn->close();
 
             calcularPrecio(); // Calcular precio inicial
         });
+
+        function redirigirPago() {
+            window.location.href = 'pagina_pago.php';
+        }
     </script>
 </head>
 <body>
@@ -208,7 +212,8 @@ $conn->close();
         <label for="precio_unitario">Precio Unitario (S/.):</label>
         <input type="text" id="precio_unitario" name="precio_unitario" readonly><br>
 
-        <button type="submit">Registrar Paquete</button>
+        <button type="submit" onclick="registrarYContinuar()">Registrar y Continuar</button>
+        <button type="button" onclick="redirigirPago()">Pasar a Pago</button>
     </form>
 </body>
 </html>
