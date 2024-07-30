@@ -168,7 +168,7 @@ $conn->close();
         });
 
         function redirigirPago() {
-            window.location.href = 'pagina_pago.php';
+            window.location.href = 'documentacion.php';
         }
     </script>
 </head>
