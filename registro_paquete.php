@@ -167,9 +167,6 @@ $conn->close();
             calcularPrecio(); // Calcular precio inicial
         });
 
-        function redirigirPago() {
-            window.location.href = 'documentacion.php';
-        }
     </script>
 </head>
 <body>
@@ -213,7 +210,7 @@ $conn->close();
         <input type="text" id="precio_unitario" name="precio_unitario" readonly><br>
 
         <button type="submit" onclick="registrarYContinuar()">Registrar y Continuar</button>
-        <button type="button" onclick="redirigirPago()">Pasar a Pago</button>
+        <button type="button" onclick="window.location.href='documentacion.php'">Continuar</button>
     </form>
 </body>
 </html>
