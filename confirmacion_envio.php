@@ -20,5 +20,6 @@ $codigo = $_SESSION['codigo'];
     <h1>Confirmación de Envío</h1>
     <p>Su envío ha sido registrado exitosamente.</p>
     <p>Código de Envío: <?php echo $codigo; ?></p>
+    <p>Dirigirse a Agencia para registrar sus paquetes.</p>
 </body>
 </html>
