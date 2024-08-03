@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         if ($stmt_comprobante->execute()) {
             $numero_serie = $stmt_comprobante->insert_id;
-            $_SESSION['numero_serie'] = $numero_serie;
+            $_SESSION['numero_serie'] = $numero_serie; // Guardar en la sesión
             // Redirigir a la página de descripción del paquete
             header("Location: descripcion_paquete.php");
         } else {
