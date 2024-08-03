@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if ($stmt_descripcion->execute()) {
             if (isset($_POST['continuar'])) {
-                header("Location: visualizar_comprobante.php");
+                header("Location: descripcion_comprobante.php");
                 exit();
             } else {
                 header("Location: descripcion_paquete.php");
@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $stmt_descripcion->close();
     } elseif (isset($_POST['continuar'])) {
-        header("Location: visualizar_comprobante.php");
+        header("Location: descripcion_comprobante.php");
         exit();
     }
 }
