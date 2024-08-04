@@ -21,5 +21,10 @@ $codigo = $_SESSION['codigo'];
     <p>Su envío ha sido registrado exitosamente.</p>
     <p>Código de Envío: <?php echo $codigo; ?></p>
     <p>Dirigirse a Agencia para registrar sus paquetes.</p>
+    
+    <!-- Formulario con botón para redirigir a menu_usuarios.php -->
+    <form action="menu_usuarios.php" method="get">
+        <button type="submit">Volver al Menú</button>
+    </form>
 </body>
 </html>

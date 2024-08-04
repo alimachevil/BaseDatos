@@ -20,6 +20,12 @@ if ($conn->connect_error) {
 $id_envio = $_SESSION['id_envio_admin'];
 $numero_serie = $_SESSION['numero_serie'];
 
+$sql_eliminar = "DELETE FROM paquetes 
+                 WHERE id_paquete NOT IN (SELECT id_paquete FROM paquetesporenvio)";
+if ($conn->query($sql_eliminar) === FALSE) {
+    echo "Error al eliminar registros: " . $conn->error;
+}
+
 // Obtener datos de la empresa y la agencia
 $sql_agencia = "SELECT a.referencia, a.provincia, a.distrito 
                 FROM envioporagencia e

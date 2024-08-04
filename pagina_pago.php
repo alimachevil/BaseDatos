@@ -68,6 +68,17 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pago</title>
+    <script>
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById("clave_seguridad");
+            var checkbox = document.getElementById("mostrar_clave");
+            if (checkbox.checked) {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+    </script>
 </head>
 <body>
     <h1>Pago</h1>
@@ -81,6 +92,9 @@ $conn->close();
 
         <label for="clave_seguridad">Clave de Seguridad (4 dígitos):</label>
         <input type="password" id="clave_seguridad" name="clave_seguridad" maxlength="4" required><br>
+
+        <input type="checkbox" id="mostrar_clave" onclick="togglePasswordVisibility()">
+        <label for="mostrar_clave">Mostrar Clave de Seguridad</label><br>
 
         <button type="submit">Registrar Pago</button>
     </form>

@@ -69,6 +69,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt_delete_pe = $conn->prepare($sql_delete_pe);
             $stmt_delete_pe->bind_param("i", $id_paquete);
             $stmt_delete_pe->execute();
+
+            // Actualizar la tarifa en la tabla pagos
+            $sql_update_pago = "UPDATE pagos SET tarifa = ? WHERE id_envio = ?";
+            $stmt_update_pago = $conn->prepare($sql_update_pago);
+            $stmt_update_pago->bind_param("di", $tarifa, $id_envio);
+            $stmt_update_pago->execute();
         }
 
         // Recargar la página
