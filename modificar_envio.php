@@ -45,48 +45,38 @@ if ($result_tarifa->num_rows > 0) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['eliminar_paquete'])) {
         $id_paquete = $_POST['id_paquete'];
-        
-        // Obtener el precio unitario del paquete a eliminar
-        $sql_precio = "SELECT precio_unitario FROM paquetes WHERE id_paquete = ?";
-        $stmt_precio = $conn->prepare($sql_precio);
-        $stmt_precio->bind_param("i", $id_paquete);
-        $stmt_precio->execute();
-        $result_precio = $stmt_precio->get_result();
-        if ($result_precio->num_rows > 0) {
-            $precio_unitario = $result_precio->fetch_assoc()['precio_unitario'];
-            $tarifa -= $precio_unitario;
+
+        // Obtener el paquete a eliminar
+        $sql_paquete = "SELECT * FROM paquetes WHERE id_paquete = ?";
+        $stmt_paquete = $conn->prepare($sql_paquete);
+        $stmt_paquete->bind_param("i", $id_paquete);
+        $stmt_paquete->execute();
+        $result_paquete = $stmt_paquete->get_result();
+        $paquete_eliminado = $result_paquete->fetch_assoc();
+
+        if ($paquete_eliminado) {
+            // Guardar el paquete eliminado en sesión
+            if (!isset($_SESSION['paquetes_eliminados'])) {
+                $_SESSION['paquetes_eliminados'] = [];
+            }
+            $_SESSION['paquetes_eliminados'][] = $paquete_eliminado;
+
+            // Actualizar la tarifa
+            $tarifa -= $paquete_eliminado['precio_unitario'];
 
             // Eliminar de la tabla paquetesporenvio
             $sql_delete_pe = "DELETE FROM paquetesporenvio WHERE id_paquete = ?";
             $stmt_delete_pe = $conn->prepare($sql_delete_pe);
             $stmt_delete_pe->bind_param("i", $id_paquete);
             $stmt_delete_pe->execute();
-
-            // Eliminar de la tabla paquetes
-            $sql_delete_p = "DELETE FROM paquetes WHERE id_paquete = ?";
-            $stmt_delete_p = $conn->prepare($sql_delete_p);
-            $stmt_delete_p->bind_param("i", $id_paquete);
-            $stmt_delete_p->execute();
-
-            // Actualizar la tarifa en la tabla pagos
-            $sql_update_tarifa = "UPDATE pagos SET tarifa = ? WHERE id_envio = ?";
-            $stmt_update_tarifa = $conn->prepare($sql_update_tarifa);
-            $stmt_update_tarifa->bind_param("di", $tarifa, $id_envio);
-            $stmt_update_tarifa->execute();
         }
 
         // Recargar la página
         header("Location: modificar_envio.php");
         exit();
     } elseif (isset($_POST['continuar'])) {
-        // Actualizar la tarifa en la tabla pagos
-        $sql_update_tarifa = "UPDATE pagos SET tarifa = ? WHERE id_envio = ?";
-        $stmt_update_tarifa = $conn->prepare($sql_update_tarifa);
-        $stmt_update_tarifa->bind_param("di", $tarifa, $id_envio);
-        $stmt_update_tarifa->execute();
-
-        // Redirigir a continuar_revision.php
-        header("Location: continuar_revision.php");
+        // Redirigir a reembolso.php
+        header("Location: reembolso.php");
         exit();
     }
 }

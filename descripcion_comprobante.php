@@ -39,8 +39,17 @@ if ($result_pago->num_rows > 0) {
     $stmt_detalle->bind_param("iddd", $numero_serie, $total, $subtotal, $igv);
 
     if ($stmt_detalle->execute()) {
-        header("Location: visualizar_comprobante.php");
-        exit();
+        // Actualizar la columna monto_final en la tabla envios
+        $sql_update_envio = "UPDATE envios SET monto_final = ? WHERE numero_orden = ?";
+        $stmt_update_envio = $conn->prepare($sql_update_envio);
+        $stmt_update_envio->bind_param("di", $total, $id_envio);
+        if ($stmt_update_envio->execute()) {
+            header("Location: visualizar_comprobante.php");
+            exit();
+        } else {
+            echo "Error al actualizar el monto final en la tabla envios: " . $conn->error;
+        }
+        $stmt_update_envio->close();
     } else {
         echo "Error al registrar el detalle del comprobante: " . $conn->error;
     }

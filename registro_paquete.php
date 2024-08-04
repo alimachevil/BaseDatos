@@ -194,16 +194,16 @@ $conn->close();
             <option value="Personalizado">Personalizado</option>
         </select><br>
 
-        <label for="largo">Largo (cm):</label>
+        <label for="largo">Largo (cm) Extra:</label>
         <input type="number" id="largo" name="largo" step="1" disabled><br>
 
-        <label for="ancho">Ancho (cm):</label>
+        <label for="ancho">Ancho (cm) Extra:</label>
         <input type="number" id="ancho" name="ancho" step="1" disabled><br>
 
-        <label for="alto">Alto (cm):</label>
+        <label for="alto">Alto (cm) Extra:</label>
         <input type="number" id="alto" name="alto" step="1" disabled><br>
 
-        <label for="peso">Peso (kg):</label>
+        <label for="peso">Peso (kg) Extra:</label>
         <input type="number" id="peso" name="peso" step="1" disabled><br>
 
         <label for="precio_unitario">Precio Unitario (S/.):</label>
