@@ -28,3 +28,9 @@ $codigo = $_SESSION['codigo'];
     </form>
 </body>
 </html>
+
+<?php
+// Limpiar y destruir la sesión
+session_unset();
+session_destroy();
+?>

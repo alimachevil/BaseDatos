@@ -1,0 +1,146 @@
+body {
+    background: linear-gradient(to bottom, #21213f, #21213f); 
+    display: flex; /* Utiliza flexbox para el diseño */
+    justify-content: center; 
+    align-items: center;/* Centra el contenido verticalmente */
+    height: 100vh; 
+    margin: 0; 
+    color: #ffffff; 
+}
+
+.container {
+    display: flex; 
+    column-gap: 10px;
+    width: 90%; /* Establece el ancho del contenedor */
+    max-width: 900px; /* Define el ancho máximo del contenedor */
+    height: 150%; /* Define la altura del contenedor */
+    max-height: 720px; /* Define la altura máxima del contenedor */
+    box-shadow: 3px 4px 8px rgba(3, 4, 22, 0.527); /* Añade una sombra alrededor del contenedor */
+    border-radius: 10px; /* Redondea las esquinas del contenedor */
+    overflow: hidden; 
+}
+
+.left-column {
+    background: rgba(254, 254, 255, 0.041); 
+    flex: 1.5; 
+    display: flex; 
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    flex-direction: column; 
+    padding: 40px; /* Añade un relleno interno */
+    box-shadow: 0 4px 8px rgba(90, 54, 124, 0.1);
+}
+
+.left-column .content {
+    text-align: center; /* Centra el texto dentro del contenido */
+}
+
+.right-column:hover {
+      /* Levanta el contenedor hacia arriba */
+    box-shadow: 5 0px 5px rgba(129, 102, 102, 0.3); /* Añadir sombra más pronunciada */
+}
+
+.left-column .logo {
+    width: 270px; /* Ancho del logo */
+    height: auto; /* Mantén la proporción del logo */
+    margin-top: 35px; /* Espacio superior */
+    display: block; /* Comportamiento de bloque */
+    margin-left: auto; /* Centra el logo horizontalmente */
+    margin-right: auto; /* Centra el logo horizontalmente */
+    transform: translateY(-10px) scale(1.05);
+}
+
+.right-column {
+    background: rgb(254, 254, 255, 0.041); /* Establece un fondo blanco */
+    flex: 1.5; /* La columna ocupa el mismo espacio que la otra columna */
+    display: flex; /* Utiliza flexbox para el diseño de la columna */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    flex-direction: column; /* Coloca los elementos en una columna */
+    padding: 20px; /* Añade un relleno interno */
+    color: #333;
+}
+
+.form-container {
+    width: 90%; 
+    max-width: 300px;
+    height: 98.5%; 
+    max-height: 1000px;
+    background: rgba(254, 254, 255, 0); /* Establece un fondo blanco */
+    padding: 15px; /* Añade un relleno interno */
+    border-radius: 20px; 
+    box-shadow: 0 4px 8px rgba(161, 118, 202, 0.1); 
+    margin-bottom: 10px; /* Añade un margen inferior */
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 20px;
+}
+
+p{
+    font-family: "Playwrite AR", cursive;
+    color: #fdfcfbb2; /* Define el color del texto como gris oscuro */
+
+}
+
+h2 {
+    margin-top: 1px;
+    margin-bottom: 1px; /* Añade un margen inferior */
+    font-size: 22px; /* Define el tamaño de la letra de los títulos */
+    color: #fdfcfcda; /* Define el color del texto como gris oscuro */
+    text-align: center;
+    padding-top: 1px; 
+}
+h1 {
+    font-family: "Playwrite AR", cursive;
+    margin-bottom: 20px; /* Añade un margen inferior */
+    font-size: 45px; /* Define el tamaño de la letra de los títulos */
+    color: #ffffffc2; /* Define el color del texto como gris oscuro */
+}
+
+form {
+    display: flex; /* Utiliza flexbox para el diseño del formulario */
+    flex-direction: column; /* Coloca los elementos en una columna */
+    align-items: center;
+}
+
+label {
+    margin: 3px 0 5px; /* Define los márgenes superior e inferior */
+    font-size: 13px; /* Define el tamaño de la letra de las etiquetas */
+    font-weight: bold; /* Define el texto en negrita */
+    color: #ebebf193; 
+}
+
+input, select {
+    padding: 5px; /* Añade un relleno interno */
+    margin-bottom: 6px;
+    margin-top: -0.3px; /* Añade un margen inferior */
+    border: 1px solid #850b0b; /* Define el borde del campo de entrada */
+    border-radius: 12px; 
+    font-size: 12px; /* Define el tamaño de la letra de los campos de entrada */
+    width: 90%; 
+    box-sizing: border-box; 
+    background-color: #1e272702;
+    transform: translateY(-5px);
+    color: #ffffff9f;
+}
+select option {
+    background-color: #553a3ace; /* Color de fondo de las opciones */
+    color: #000000ad; /* Color del texto de las opciones */
+}
+
+button {
+    padding: 8px 16px; /* Añade un relleno interno */
+    border: none; /* Elimina el borde del botón */
+    border-radius: 12px; /* Redondea las esquinas del botón */
+    background: rgba(235, 70, 70, 0.212); /* Define el color de fondo del botón */
+    color: #ffffff8c; /* Define el color del texto del botón */
+    cursor: pointer; /* Cambia el cursor a una mano cuando se pasa por encima */
+    transition: background 0.3s ease; /* Añade una transición suave al color de fondo */
+    font-size: 14px; /* Define el tamaño de la letra del botón */
+    width: 70%; /* El botón ocupa todo el ancho disponible */
+}
+
+button:hover {
+    background: #5e0606; /* Cambia el color de fondo del botón cuando se pasa por encima */
+}
