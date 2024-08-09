@@ -258,7 +258,7 @@ $conn->close();
         <label for="precio_unitario">Precio Unitario (S/.):</label>
         <input type="text" id="precio_unitario" name="precio_unitario" readonly><br>
 
-        <button type="submit" onclick="registrarYContinuar()">Registrar y Continuar</button>
+        <button type="submit" onclick="registrarYContinuar()">Registrar</button>
         <button type="button" onclick="window.location.href='documentacion.php'">Continuar</button>
     </form>
 
