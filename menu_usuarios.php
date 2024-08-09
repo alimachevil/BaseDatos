@@ -16,5 +16,6 @@ session_destroy();
     <h1>Menú Usuarios</h1>
     <button onclick="location.href='login.html'">Registrar Paquete</button><br>
     <button onclick="location.href='rastreo_envio.php'">Rastrear Envío</button>
+    <button onclick="location.href='visualizar_envios_usuarios.php'">Visualizar Envios</button>
 </body>
 </html>
