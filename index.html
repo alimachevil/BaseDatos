@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            display: flex;
+            justify-content: space-around;
+            width: 70%;
+        }
+        .option {
+            background-color: #fff;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 45%;
+            transition: transform 0.3s;
+        }
+        .option:hover {
+            transform: scale(1.05);
+        }
+        .option img {
+            width: 100%;
+            border-bottom: 2px solid #ddd;
+            border-radius: 10px 10px 0 0;
+        }
+        .option h2 {
+            margin: 0;
+            padding: 15px 0;
+            font-size: 24px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 0 0 10px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="option" onclick="location.href='menu_administrador.php'">
+            <img src="admin.png" alt="Administrador">
+            <h2>Administrador</h2>
+        </div>
+        <div class="option" onclick="location.href='menu_usuarios.php'">
+            <img src="user.png" alt="Usuarios">
+            <h2>Usuarios</h2>
+        </div>
+    </div>
+</body>
+</html>
