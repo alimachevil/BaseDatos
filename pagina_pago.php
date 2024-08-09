@@ -87,7 +87,7 @@ $conn->close();
         <label for="tarifa">Tarifa:</label>
         <input type="text" id="tarifa" name="tarifa" value="<?php echo $tarifa_total; ?>" readonly><br>
 
-        <label for="garantia">Garantía:</label>
+        <label for="garantia">Garantía (+S/15):</label>
         <input type="checkbox" id="garantia" name="garantia"><br>
 
         <label for="clave_seguridad">Clave de Seguridad (4 dígitos):</label>
